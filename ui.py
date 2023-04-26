@@ -48,9 +48,8 @@ class UploadUI(QWidget):
 
 
 if __name__ == '__main__':
-    app = QApplication()
+    app = QApplication(sys.argv)
     uu = UploadUI()
     
     sys.exit(app.exec_())
     
-
