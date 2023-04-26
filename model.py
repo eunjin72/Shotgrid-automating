@@ -16,18 +16,28 @@ class Test():
     
     def get_project(self):
         projects = sg.find("Project", filters=[["sg_status", "is", "Active"]], fields=["id", "name"])
+        return projects
+        # for project in projects:
+        #     return project
 
-        project = []
-        for p in projects:
-            project.append(p["name"])
-
-        return project
+        # for p in projects:
+        #     return p
+        # project = []
+        # for p in projects:
+        #     temp = p["id"], p["name"]
+        #     project.append(temp)
+        # print(project)
+        # print("0", project[0][1])
+        # return project
 
     def get_asset_type(self):
         projects = sg.find("Project", filters=[["sg_status", "is", "Active"]], fields=["id", "name"])
         for p in projects:
             context = sg.schema_field_read('Asset', field_name="sg_asset_type", project_entity=p)
         return context["sg_asset_type"]["properties"]["valid_values"]["value"]
+    
+    def get_asset_name(self):
+        pass
     
     # def get_asset_type(self):
     #     type = sg.find("Asset", filters=[["sg_asset_type", "is", "Active"]], fields=["id"])

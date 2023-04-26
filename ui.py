@@ -1,6 +1,6 @@
 import sys
 
-from PySide2.QtWidgets import QWidget, QComboBox, QHBoxLayout, QVBoxLayout, QLineEdit, QApplication, QPushButton
+from PySide2.QtWidgets import QWidget, QComboBox, QHBoxLayout, QVBoxLayout, QLineEdit, QApplication, QPushButton, QFileDialog
 from PySide2.QtGui import *
 
 
@@ -40,11 +40,13 @@ class UploadUI(QWidget):
         self.hbBot.addWidget(self.btn_cancel)
         self.hbBot.addStretch()
 
+        self.btn_browse.clicked.connect(self.get_asset_name)
+
         self.show()
 
-        # self.box_project = QComboBox()
-        # self.box_project.addItems(["1", "Project", "3"])
-        # self.box_project.setCurrentText("Project")
+    def get_asset_name(self):
+        test = QFileDialog.getOpenFileName()
+        print(test)
 
 
 if __name__ == '__main__':

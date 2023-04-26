@@ -21,7 +21,7 @@ class ControlTest(QWidget):
         self.view = UploadUI()
 
         # 따로 test
-        self.view.com_project.addItems(self.model.get_project()) 
+        self.view.com_project.addItem(self.set_project()) 
         self.view.com_asset.addItems(self.model.get_asset_type())
 
         self.view.com_project.activated.connect(self.current_project)
@@ -48,6 +48,12 @@ class ControlTest(QWidget):
     #     type = self.view.com_project.itemData(index)
     #     if type:
     #         self.view.com_asset.addItems(type)
+
+    def set_project(self):
+        # temp = []
+        temp = self.model.get_project()
+        print(temp)
+        # return temp["name"]
 
     def current_project(self):
         project = self.view.com_project.currentText()
