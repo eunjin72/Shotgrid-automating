@@ -1,10 +1,9 @@
 import sys
 
-from PySide2.QtWidgets import QWidget, QComboBox, QHBoxLayout, QVBoxLayout, QLineEdit, QApplication, QPushButton, QFileDialog
-from PySide2.QtGui import *
+from PySide2.QtWidgets import QWidget, QComboBox, QHBoxLayout, QVBoxLayout, QLineEdit, QApplication, QPushButton
 
 
-class UploadUI(QWidget):
+class AssetUploaderView(QWidget):
     def __init__(self):
         super().__init__()
         self.setup_ui()
@@ -13,13 +12,15 @@ class UploadUI(QWidget):
         self.setWindowTitle("Upload Assets")
         self.setGeometry(200, 200, 600, 200)
 
+        # create widgets
         self.com_project = QComboBox()
         self.com_asset = QComboBox()
         self.line_path = QLineEdit()
         self.btn_browse = QPushButton("Browse")
-        self.btn_ok = QPushButton("Ok")        
+        self.btn_upload = QPushButton("Upload")        
         self.btn_cancel = QPushButton("cancel")        
 
+        # layout
         self.vb = QVBoxLayout()
         self.hbTop = QHBoxLayout()
         self.hbMid = QHBoxLayout()
@@ -36,22 +37,29 @@ class UploadUI(QWidget):
         self.hbMid.addWidget(self.btn_browse)
 
         self.hbBot.addStretch()
-        self.hbBot.addWidget(self.btn_ok)
+        self.hbBot.addWidget(self.btn_upload)
         self.hbBot.addWidget(self.btn_cancel)
         self.hbBot.addStretch()
 
-        self.btn_browse.clicked.connect(self.get_asset_name)
+        # button click event example
+        self.btn_browse.clicked.connect(self.btn_browse_clicked)
+        self.btn_upload.clicked.connect(self.btn_upload_clicked)
+        self.btn_cancel.clicked.connect(self.btn_cancel_clicked)
 
         self.show()
 
-    def get_asset_name(self):
-        test = QFileDialog.getOpenFileName()
-        print(test)
+    def btn_browse_clicked(self):
+        print("Select Assets")
+
+    def btn_upload_clicked(self):
+        print("Upload Assets")
+
+    def btn_cancel_clicked(self):
+        print("close")
 
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    uu = UploadUI()
-    
+    ui= AssetUploaderView()
     sys.exit(app.exec_())
     
