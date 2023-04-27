@@ -41,7 +41,7 @@ class AssetUploaderView(QWidget):
         self.hbBot.addWidget(self.btn_cancel)
         self.hbBot.addStretch()
 
-        # button click event example
+        # button clicked event example
         self.btn_browse.clicked.connect(self.btn_browse_clicked)
         self.btn_upload.clicked.connect(self.btn_upload_clicked)
         self.btn_cancel.clicked.connect(self.btn_cancel_clicked)
