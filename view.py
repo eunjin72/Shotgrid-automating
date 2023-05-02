@@ -49,13 +49,13 @@ class AssetUploaderView(QWidget):
         self.show()
 
     def btn_browse_clicked(self):
-        print("Select Assets")
+        print("Select assets directory")
 
     def btn_upload_clicked(self):
-        print("Upload Assets")
+        print("Upload assets")
 
     def btn_cancel_clicked(self):
-        print("close")
+        print("Close")
 
 
 if __name__ == '__main__':

@@ -53,8 +53,8 @@ def main():
     model.upload_assets(
         project_name=input("Enter the Project Name : "), 
         asset_dir_path=input("Enter the path of Assets : "), 
-        asset_type=input("Enter the Asset type : "))
-    
+        asset_type=input("Enter the Asset type : ")
+        )    
 
 if __name__ == "__main__":
     main()
