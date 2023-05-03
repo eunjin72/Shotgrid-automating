@@ -1,5 +1,5 @@
 import sys
-from PySide2.QtWidgets import QApplication, QFileDialog
+from PySide2.QtWidgets import QWidget, QApplication, QFileDialog
 
 from view import AssetUploaderView
 from model import AssetUploaderModel

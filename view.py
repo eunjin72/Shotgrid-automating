@@ -44,24 +44,24 @@ class AssetUploaderView(QWidget):
         self.setLayout(vb)
 
         # button clicked event example
-        self.btn_browse.clicked.connect(self.btn_browse_clicked)
-        self.btn_upload.clicked.connect(self.btn_upload_clicked)
-        self.btn_cancel.clicked.connect(self.btn_cancel_clicked)
+        self.btn_browse.clicked.connect(self.btn_browse_test)
+        self.btn_upload.clicked.connect(self.btn_upload_test)
+        self.btn_cancel.clicked.connect(self.btn_cancel_test)
 
         self.show()
 
-    def btn_browse_clicked(self):
+    def btn_browse_test(self):
         print("Select assets directory")
 
-    def btn_upload_clicked(self):
+    def btn_upload_test(self):
         print("Upload assets")
 
-    def btn_cancel_clicked(self):
+    def btn_cancel_test(self):
         print("Close")
 
 
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    ui= AssetUploaderView()
-    sys.exit(app.exec_())
+# if __name__ == '__main__':
+    # app = QApplication(sys.argv)
+    # ui= AssetUploaderView()
+    # sys.exit(app.exec_())
     
