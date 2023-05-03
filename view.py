@@ -10,6 +10,7 @@ class AssetUploaderView(QWidget):
 
     def setup_ui(self):
         self.setWindowTitle("Upload Assets")
+        #self.resize( 600, 200 )
         self.setGeometry(200, 200, 600, 200)
 
         # create widgets
@@ -21,25 +22,26 @@ class AssetUploaderView(QWidget):
         self.btn_cancel = QPushButton("cancel")        
 
         # layout
-        self.vb = QVBoxLayout()
-        self.hbTop = QHBoxLayout()
-        self.hbMid = QHBoxLayout()
-        self.hbBot = QHBoxLayout()
-        self.vb.addLayout(self.hbTop)
-        self.vb.addLayout(self.hbMid)
-        self.vb.addLayout(self.hbBot)
-        self.setLayout(self.vb)
+        vb = QVBoxLayout()
+        hbTop = QHBoxLayout()
+        hbMid = QHBoxLayout()
+        hbBot = QHBoxLayout()
+        vb.addLayout(hbTop)
+        vb.addLayout(hbMid)
+        vb.addLayout(hbBot)
 
-        self.hbTop.addWidget(self.com_project)
-        self.hbTop.addWidget(self.com_asset)
+        hbTop.addWidget(self.com_project)
+        hbTop.addWidget(self.com_asset)
 
-        self.hbMid.addWidget(self.line_path)
-        self.hbMid.addWidget(self.btn_browse)
+        hbMid.addWidget(self.line_path)
+        hbMid.addWidget(self.btn_browse)
 
-        self.hbBot.addStretch()
-        self.hbBot.addWidget(self.btn_upload)
-        self.hbBot.addWidget(self.btn_cancel)
-        self.hbBot.addStretch()
+        hbBot.addStretch()
+        hbBot.addWidget(self.btn_upload)
+        hbBot.addWidget(self.btn_cancel)
+        hbBot.addStretch()
+
+        self.setLayout(vb)
 
         # button clicked event example
         self.btn_browse.clicked.connect(self.btn_browse_clicked)
