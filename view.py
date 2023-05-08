@@ -63,7 +63,7 @@ class AssetUploaderView(QWidget):
         print("Select assets directory")
 
     def upload_test(self):
-        self.message_box()
+        # self.message_box()
         print("Upload assets")
 
     def cancel_test(self):

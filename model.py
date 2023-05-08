@@ -5,9 +5,9 @@ from pprint import pprint
 
 
 # Shotgrid Api connect
-SERVER_PATH = "https://rndtest.shotgrid.autodesk.com"
-SCRIPT_NAME = 'script_kej'
-SCRIPT_KEY = 'kibjce#prQeimq3lsojkstgmq'
+SERVER_PATH = "https://molo.shotgrid.autodesk.com"
+SCRIPT_NAME = 'script_dj'
+SCRIPT_KEY = 'i*teicH1pmxjklgqmydqwmyyl'
 sg = Shotgun(SERVER_PATH, SCRIPT_NAME, SCRIPT_KEY)
 
 
