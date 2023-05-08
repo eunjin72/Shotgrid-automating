@@ -1,7 +1,8 @@
 import sys
 
-from PySide2.QtWidgets import QApplication, QWidget, QDesktopWidget, \
+from PySide2.QtWidgets import QApplication, QWidget, \
     QHBoxLayout, QVBoxLayout, QComboBox, QLineEdit, QPushButton, QMessageBox
+from PySide2 import QtGui
 
 
 class AssetUploaderView(QWidget):
@@ -51,7 +52,7 @@ class AssetUploaderView(QWidget):
 
     def center(self):
         fg = self.frameGeometry()
-        dw = QDesktopWidget().availableGeometry().center()
+        dw = QtGui.QGuiApplication.primaryScreen().availableGeometry().center()
         fg.moveCenter(dw)
         self.move(fg.topLeft())
 
