@@ -1,11 +1,11 @@
 import sys
-from PySide2.QtWidgets import QWidget, QApplication, QFileDialog
+from PySide2.QtWidgets import QApplication, QFileDialog
 
 from view import AssetUploaderView
 from model import AssetUploaderModel
 
 
-class AssetUploaderControler(AssetUploaderView):
+class AssetUploaderController(AssetUploaderView):
     def __init__(self):
         super().__init__()
         self.model = AssetUploaderModel()
@@ -31,11 +31,12 @@ class AssetUploaderControler(AssetUploaderView):
         return asset_type
     
     def btn_browse_clicked(self):
-        self.dir_path= QFileDialog.getExistingDirectory()
+        self.dir_path = QFileDialog.getExistingDirectory()
         self.line_path.setText(self.dir_path)
 
     def btn_upload_clicked(self):
         self.model.upload_assets(self.current_project(), self.dir_path, self.current_asset_type())
+        self.message_box()
         
     def btn_cancel_clicked(self):
         self.close()
@@ -43,5 +44,5 @@ class AssetUploaderControler(AssetUploaderView):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    auc = AssetUploaderControler()
+    auc = AssetUploaderController()
     sys.exit(app.exec_())

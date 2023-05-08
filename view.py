@@ -1,6 +1,7 @@
 import sys
 
-from PySide2.QtWidgets import QWidget, QComboBox, QHBoxLayout, QVBoxLayout, QLineEdit, QApplication, QPushButton
+from PySide2.QtWidgets import QApplication, QWidget, QDesktopWidget, \
+    QHBoxLayout, QVBoxLayout, QComboBox, QLineEdit, QPushButton, QMessageBox
 
 
 class AssetUploaderView(QWidget):
@@ -10,58 +11,66 @@ class AssetUploaderView(QWidget):
 
     def setup_ui(self):
         self.setWindowTitle("Upload Assets")
-        #self.resize( 600, 200 )
-        self.setGeometry(200, 200, 600, 200)
+        self.resize(600, 200)
+        self.center()
 
         # create widgets
+        vb = QVBoxLayout()
+
+        hbtop = QHBoxLayout()
+        vb.addLayout(hbtop)
         self.com_project = QComboBox()
         self.com_asset = QComboBox()
+        hbtop.addWidget(self.com_project)
+        hbtop.addWidget(self.com_asset)
+
+        hbmid = QHBoxLayout()
+        vb.addLayout(hbmid)
         self.line_path = QLineEdit()
         self.btn_browse = QPushButton("Browse")
-        self.btn_upload = QPushButton("Upload")        
-        self.btn_cancel = QPushButton("cancel")        
+        hbmid.addWidget(self.line_path)
+        hbmid.addWidget(self.btn_browse)
 
-        # layout
-        vb = QVBoxLayout()
-        hbTop = QHBoxLayout()
-        hbMid = QHBoxLayout()
-        hbBot = QHBoxLayout()
-        vb.addLayout(hbTop)
-        vb.addLayout(hbMid)
-        vb.addLayout(hbBot)
-
-        hbTop.addWidget(self.com_project)
-        hbTop.addWidget(self.com_asset)
-
-        hbMid.addWidget(self.line_path)
-        hbMid.addWidget(self.btn_browse)
-
-        hbBot.addStretch()
-        hbBot.addWidget(self.btn_upload)
-        hbBot.addWidget(self.btn_cancel)
-        hbBot.addStretch()
+        hbbot = QHBoxLayout()
+        vb.addLayout(hbbot)
+        hbbot.addStretch()
+        self.btn_upload = QPushButton("Upload")
+        self.btn_cancel = QPushButton("cancel")
+        hbbot.addWidget(self.btn_upload)
+        hbbot.addWidget(self.btn_cancel)
+        hbbot.addStretch()
 
         self.setLayout(vb)
 
         # button clicked event example
-        self.btn_browse.clicked.connect(self.btn_browse_test)
-        self.btn_upload.clicked.connect(self.btn_upload_test)
-        self.btn_cancel.clicked.connect(self.btn_cancel_test)
+        self.btn_browse.clicked.connect(self.browse_test)
+        self.btn_upload.clicked.connect(self.upload_test)
+        self.btn_cancel.clicked.connect(self.cancel_test)
 
         self.show()
 
-    def btn_browse_test(self):
+    def center(self):
+        fg = self.frameGeometry()
+        dw = QDesktopWidget().availableGeometry().center()
+        fg.moveCenter(dw)
+        self.move(fg.topLeft())
+
+    def message_box(self):
+        msgbox = QMessageBox()
+        msgbox.about(self, "Alert", "Complete")
+
+    def browse_test(self):
         print("Select assets directory")
 
-    def btn_upload_test(self):
+    def upload_test(self):
+        self.message_box()
         print("Upload assets")
 
-    def btn_cancel_test(self):
+    def cancel_test(self):
         print("Close")
 
 
-# if __name__ == '__main__':
-    # app = QApplication(sys.argv)
-    # ui= AssetUploaderView()
-    # sys.exit(app.exec_())
-    
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    ui = AssetUploaderView()
+    sys.exit(app.exec_())

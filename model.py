@@ -11,20 +11,19 @@ SCRIPT_KEY = 'kibjce#prQeimq3lsojkstgmq'
 sg = Shotgun(SERVER_PATH, SCRIPT_NAME, SCRIPT_KEY)
 
 
-class AssetUploaderModel():
+class AssetUploaderModel:
     def __init__(self):
         self.projects = sg.find("Project", filters=[["sg_status", "is", "Active"]], fields=["id", "name"])
-
     
     def get_project_name(self):
         project_name = []
-        for p in self.projects:
-            project_name.append(p["name"])
+        for project in self.projects:
+            project_name.append(project["name"])
         return project_name
 
     def get_asset_type(self):
-        for p in self.projects:
-            context = sg.schema_field_read('Asset', field_name="sg_asset_type", project_entity=p)
+        for project in self.projects:
+            context = sg.schema_field_read('Asset', field_name="sg_asset_type", project_entity=project)
         return context["sg_asset_type"]["properties"]["valid_values"]["value"]
     
     def upload_assets(self, project_name, asset_dir_path, asset_type):
@@ -55,6 +54,7 @@ def main():
         asset_dir_path=input("Enter the path of Assets : "), 
         asset_type=input("Enter the Asset type : ")
         )    
+
 
 if __name__ == "__main__":
     main()
