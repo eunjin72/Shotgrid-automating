@@ -1,7 +1,6 @@
 import sys
 
-from PySide2.QtWidgets import QApplication, QWidget, \
-    QHBoxLayout, QVBoxLayout, QComboBox, QLineEdit, QPushButton, QMessageBox
+from PySide2.QtWidgets import *
 from PySide2 import QtGui
 
 
