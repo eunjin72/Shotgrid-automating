@@ -4,10 +4,10 @@ from shotgun_api3 import Shotgun
 from pprint import pprint
 
 
-# Shotgrid Api connect
-SERVER_PATH = "https://molo.shotgrid.autodesk.com"
-SCRIPT_NAME = 'script_dj'
-SCRIPT_KEY = 'i*teicH1pmxjklgqmydqwmyyl'
+# Shotgrid API connect
+SERVER_PATH = "shotgrid_url"
+SCRIPT_NAME = 'script_name'
+SCRIPT_KEY = 'script_key'
 sg = Shotgun(SERVER_PATH, SCRIPT_NAME, SCRIPT_KEY)
 
 
@@ -42,7 +42,7 @@ class AssetUploaderModel:
             
             result = sg.create('Asset', data)
         
-        pprint(result)
+        print(result)
 
 
 def main():

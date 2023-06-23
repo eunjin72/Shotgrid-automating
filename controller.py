@@ -1,5 +1,5 @@
 import sys
-from PySide2.QtWidgets import QApplication, QFileDialog
+from PySide2.QtWidgets import *
 
 from view import AssetUploaderView
 from model import AssetUploaderModel
@@ -31,7 +31,9 @@ class AssetUploaderController(AssetUploaderView):
         return asset_type
     
     def btn_browse_clicked(self):
-        self.dir_path = QFileDialog.getExistingDirectory()
+        dialog = QFileDialog()
+        dialog.setDirectory(r'C:\shotgrid')
+        self.dir_path = dialog.getExistingDirectory()
         self.line_path.setText(self.dir_path)
 
     def btn_upload_clicked(self):
