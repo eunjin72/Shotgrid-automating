@@ -4,7 +4,7 @@
 
 ## What is tool
 
-- local directory에 있는 모든 Asset을 Project, Asset Step을 선택하여 ShotGrid에 자동으로 추가
+- local directory에 있는 모든 Asset을 Project, Asset Type을 선택하여 ShotGrid에 자동으로 추가
 
 <br/>
 
