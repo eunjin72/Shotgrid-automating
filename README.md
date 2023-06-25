@@ -8,5 +8,5 @@
 
 <br/>
 
-![Untitled](https://github.com/eunjin72/Shotgrid-automating/assets/128131020/9bc1c977-eeb0-4d41-8cc7-ff5e79d3ead3)
+![auto](https://github.com/eunjin72/Shotgrid-automating/assets/128131020/0fa5f93f-2f39-406d-9d14-407cbdc29446)
 
